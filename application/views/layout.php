@@ -4,6 +4,12 @@
     <title>Gomeeki</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta content='width=device-width, initial-scale=1.0, user-scalable=no' name='viewport' />
+    
+    <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+    <script type="text/javascript"
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAsgnVE95c8rRKlVs1xzA4SCtWe64XIv1Q"></script>
+    
+    <link rel="stylesheet" href="<?php echo ASSETS ?>css/index.css" />
 </head>
 <body>
     <div id="body">

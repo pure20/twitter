@@ -1,0 +1,68 @@
+* { 
+    margin: 0px;
+    padding: 0px;
+    font-family: Arial;
+    font-size: 13px;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+#body {
+    position: relative;	
+}
+
+#map-canvas {
+    width: 100%;	
+}
+
+#control-holder {
+    position: absolute;
+    bottom: 0px;
+    width: 100%
+}
+
+#input-holder {
+	  float: left;
+    width: 100%;
+}
+
+#input-button-indent {
+    padding-right: 140px;	
+}
+
+#button-holder {
+	  float: left;
+    margin-left: -140px;
+    width: 140px;
+}
+
+.input-box {
+    width: 100%;
+    padding: 5px;
+    border: 1px solid white;	
+}
+
+.button {
+	  background-color: blue;
+    border: 1px solid white;
+    color: white;
+    width: 70px;
+    padding: 5px;
+}
+
+.float-left {
+	  float: left;
+}
+
+ul#menu-item {
+	
+}
+
+.item a {
+    display: block;	
+    padding: 10px;
+    border-bottom: 1px solid black;
+}
