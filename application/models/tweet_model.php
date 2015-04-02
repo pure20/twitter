@@ -61,7 +61,7 @@ class Tweet_Model extends CI_Model
      * Get the saved search term that user use to search
      * 
      * @param string $user
-     * @return NULL
+     * @return array result object, or null if not found
      */
     public function getSavedSearch($user)
     {

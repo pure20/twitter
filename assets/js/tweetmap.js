@@ -12,9 +12,12 @@ $(document).ready(function() {
     })
     
 	$('#search').on('click', function(e) {
+		var value = $('#address').val()
+		if ($.trim(value) != '') {
 		    $('#address-form').submit();
 		}
 		else {
+			alert('Please enter City name.');
 		}
 		e.preventDefault();
 	});
