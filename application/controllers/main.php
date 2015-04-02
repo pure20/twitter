@@ -7,7 +7,7 @@ class Main extends MY_Controller
 {
     public function index()
     {
-        $content['address'] = $this->input->get('q', true);
+        $content['address'] = $this->input->get('q');
         $page['mainContent'] = $this->load->view('main/index', $content, true);
         $this->load->view('layout', $page);
     }
@@ -24,7 +24,7 @@ class Main extends MY_Controller
         $response = null;
         $lat = $this->input->post('lat', true);
         $lng = $this->input->post('lng', true);
-        $searchQuery = $this->input->post('address', true);
+        $searchQuery = $this->input->post('address');
         if ($searchQuery) {
             $this->load->model('tweet_model');
             	

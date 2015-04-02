@@ -12,3 +12,4 @@ application/logs/*
 .settings/org.eclipse.php.core.prefs
 .settings/org.eclipse.wst.common.project.facet.core.xml
 .settings/org.eclipse.core.resources.prefs
+application/config/database.php
