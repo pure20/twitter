@@ -11,21 +11,22 @@ $(document).ready(function() {
         $('#map-canvas').height(h);
     })
     
-	$('#search').on('click', function() {
-		  $('#address-form').submit();
+	$('#search').on('click', function(e) {
+		$('#address-form').submit();
+		e.preventDefault();
 	});
 
 	$('#address-form').on('submit', function(e) {
-		  var address = $('#address').val();
-		  $('#search-key').text('TWEET ABOUT ' + address);
-		  hist.pushState('main', address, '?q=' + address);
-		  getTweet(address);
-		  e.preventDefault();
+        var address = $('#address').val();
+		$('#search-key').text('TWEET ABOUT ' + address);
+		getTweet(address);
+		hist.pushState('main', address, '?q=' + address);
+		e.preventDefault();
 	})	
 })
 
 function initialize() {
-	  geocoder = new google.maps.Geocoder();
+	geocoder = new google.maps.Geocoder();
     var mapOptions = {
         center: { lat: -34.397, lng: 150.644},
         zoom: 11
