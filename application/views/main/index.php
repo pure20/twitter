@@ -33,8 +33,10 @@ function initialize() {
 
 google.maps.event.addDomListener(window, 'load', initialize);
 
-var markers = [];
 $('#search').on('click', codeAddress);
+
+var markers = [];
+var infoWindowStore = [];
 
 function codeAddress() {
     var address = $('#address').val();
@@ -57,7 +59,11 @@ function codeAddress() {
 			    	                }
 		    	              );
 
+		                    infoWindowStore.push(infoWindow);
 		                    google.maps.event.addListener(markers[i], 'click', function() {
+		                    	  for (j in infoWindowStore) {
+			                		      infoWindowStore[j].close();
+			                	    }
 		                        infoWindow.open(map, markers[i]);
 		                    });
 	                  }  
