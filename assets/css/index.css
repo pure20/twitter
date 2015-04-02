@@ -25,14 +25,12 @@ body {
 	  text-shadow: 1px 1px #FFFFFF;
 	  position: absolute;
 	  text-align: center;
-	  width: 300px;
+	  width: 100%;
 	  margin: auto;
 	  text-align: center;
 	  text-transform: uppercase;
 	  z-index: 1;
-	  left: 50%;
 	  top: 10px;
-	  margin-left: -150px;
 }
 #control-holder {
     position: absolute;
