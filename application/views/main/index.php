@@ -9,7 +9,7 @@
         <div id="input-holder">
             <div id="input-button-indent">
                 <input type="text" id="address" name="address" class="input-box input-pad" autocomplete="off" 
-                    placeholder="Country name" value="<?php echo !empty($address) ? $address : '' ?>" />
+                    placeholder="City name" value="<?php echo !empty($address) ? $address : '' ?>" />
             </div>
         </div>
         <div id="button-holder">

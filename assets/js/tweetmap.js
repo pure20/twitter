@@ -12,7 +12,10 @@ $(document).ready(function() {
     })
     
 	$('#search').on('click', function(e) {
-		$('#address-form').submit();
+		    $('#address-form').submit();
+		}
+		else {
+		}
 		e.preventDefault();
 	});
 
