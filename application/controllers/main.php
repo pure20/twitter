@@ -26,16 +26,35 @@ class Main extends MY_Controller
         $lng = $this->input->post('lng', true);
         $searchQuery = $this->input->post('address', true);
         if ($searchQuery) {
-            // call twitter api to get result
-            $url = 'https://api.twitter.com/1.1/search/tweets.json';
-            $getField = '?q=' . $searchQuery . '+#' . $searchQuery . '&geocode=' . $lat . ',' .$lng
-            . ',50km&result_type=recent';
-            $requestMethod = 'GET';
-            $twitter = new TwitterAPIExchange($settings);
-            $response = $twitter->setGetfield($getField)
-                ->buildOauth($url, $requestMethod)
-                ->performRequest();
+            $this->load->model('tweet_model');
+            	
+            // check tweet from 1 hour cache
+            $tweet = $this->tweet_model->getTweetCache($this->user, $searchQuery);
+            if (!is_null($tweet)) {
+                echo $tweet->tweet;
+                exit;
+            }
+            else {
+                // call twitter api to get result
+                $url = 'https://api.twitter.com/1.1/search/tweets.json';
+                $getField = '?q=' . $searchQuery . '+#' . $searchQuery . '&geocode=' . $lat . ',' .$lng
+                    . ',50km&result_type=recent';
+                $requestMethod = 'GET';
+                $twitter = new TwitterAPIExchange($settings);
+                $response = $twitter->setGetfield($getField)
+                    ->buildOauth($url, $requestMethod)
+                    ->performRequest();
 
+                // prepare the saved data
+                $saveData = array(
+                    'uid' => $this->user,
+                    'search_text' => $searchQuery,
+                    'tweet' => $response,
+                    'created_at' => date('Y-m-d H:s:i')
+                );
+                
+                $this->tweet_model->saveSearch($saveData);
+            }
         }
     
         echo $response;
