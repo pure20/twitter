@@ -3,32 +3,13 @@
 if (! defined('BASEPATH'))
     exit('No direct script access allowed');
 
-class History extends CI_Controller
+class History extends MY_Controller
 {
-
-    /**
-     * Index Page for this controller.
-     *
-     * Maps to the following URL
-     * http://example.com/index.php/welcome
-     * - or -
-     * http://example.com/index.php/welcome/index
-     * - or -
-     * Since this controller is set as the default controller in
-     * config/routes.php, it's displayed at http://example.com/
-     *
-     * So any other public methods not prefixed with an underscore will
-     * map to /index.php/welcome/<method_name>
-     * 
-     * @see http://codeigniter.com/user_guide/general/urls.html
-     */
     public function index()
     {
-        $content = array();
-        $page['main_content'] = $this->load->view('history/index', $content, true);
+        $this->load->model('tweet_model');
+		    $content['savedSearch'] = $this->tweet_model->getSavedSearch($this->user);
+        $page['mainContent'] = $this->load->view('history/index', $content, true);
         $this->load->view('layout', $page);
     }
 }
-
-/* End of file welcome.php */
-/* Location: ./application/controllers/welcome.php */

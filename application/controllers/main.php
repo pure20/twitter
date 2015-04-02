@@ -8,7 +8,7 @@ class Main extends MY_Controller
     public function index()
     {
         $content = array();
-        $page['main_content'] = $this->load->view('main/index', $content, true);
+        $page['mainContent'] = $this->load->view('main/index', $content, true);
         $this->load->view('layout', $page);
     }
     
@@ -37,7 +37,7 @@ class Main extends MY_Controller
             else {
                 // call twitter api to get result
                 $url = 'https://api.twitter.com/1.1/search/tweets.json';
-                $getField = '?q=' . $searchQuery . '+#' . $searchQuery . '&geocode=' . $lat . ',' .$lng
+                $getField = '?q=' . urlencode($searchQuery . '+#' . $searchQuery) . '&geocode=' . urlencode($lat) . ',' .urlencode($lng)
                     . ',50km&result_type=recent';
                 $requestMethod = 'GET';
                 $twitter = new TwitterAPIExchange($settings);
@@ -61,6 +61,3 @@ class Main extends MY_Controller
         exit;
     }
 }
-
-/* End of file welcome.php */
-/* Location: ./application/controllers/welcome.php */

@@ -13,7 +13,7 @@
 </head>
 <body>
     <div id="body">
-        <?php echo $main_content ?>
+        <?php echo $mainContent ?>
     </div>
 </body>
 </html>
