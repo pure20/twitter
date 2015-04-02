@@ -18,6 +18,22 @@ body {
     width: 100%;	
 }
 
+.search-performed {
+	  font-size: 24px;
+	  font-weight: bold;
+	  color: #2799DB;
+	  text-shadow: 1px 1px #FFFFFF;
+	  position: absolute;
+	  text-align: center;
+	  width: 300px;
+	  margin: auto;
+	  text-align: center;
+	  text-transform: uppercase;
+	  z-index: 1;
+	  left: 50%;
+	  top: 10px;
+	  margin-left: -150px;
+}
 #control-holder {
     position: absolute;
     bottom: 0px;
@@ -41,16 +57,14 @@ body {
 
 .input-box {
     width: 100%;
-    padding: 5px;
     border: 1px solid white;	
 }
 
 .button {
-	  background-color: blue;
+	  background-color: #2799DB;
     border: 1px solid white;
     color: white;
     width: 70px;
-    padding: 5px;
 }
 
 .float-left {
@@ -65,4 +79,16 @@ ul#menu-item {
     display: block;	
     padding: 10px;
     border-bottom: 1px solid black;
+}
+
+@media all and (min-width: 641px) {
+	  .input-pad { 
+	      padding : 5px; 
+	  }
+}
+
+@media all and (max-width: 640px) {
+	  .input-pad { 
+	      padding : 8px 5px; 
+	  }
 }

@@ -10,6 +10,9 @@
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAsgnVE95c8rRKlVs1xzA4SCtWe64XIv1Q"></script>
     
     <link rel="stylesheet" href="<?php echo ASSETS ?>css/index.css" />
+    <script>
+        var hist = window.history;
+    </script>
 </head>
 <body>
     <div id="body">

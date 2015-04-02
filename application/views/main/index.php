@@ -1,13 +1,18 @@
+<?php if ($address): ?>
+    <div id="search-key" class="search-performed">TWEET ABOUT <?php echo htmlentities($address) ?></div>
+<?php else: ?>
+    <div id="search-key" class="search-performed"></div>
+<?php endif ?>
 <div id="map-canvas"></div>
 <div id="control-holder">
     <div id="input-holder">
         <div id="input-button-indent">
-            <input type="text" id="address" name="address" class="input-box" placeholder="Country name" />
+            <input type="text" id="address" name="address" class="input-box input-pad" placeholder="Country name" />
         </div>
     </div>
     <div id="button-holder">
-        <input type="button" class="button float-left" id="search" value="Search" />
-        <input type="button" class="button float-left" value="History" onclick="window.location.href='history'" />
+        <input type="button" class="button float-left input-pad" id="search" value="Search" />
+        <input type="button" class="button float-left input-pad" value="History" onclick="window.location.href='history'" />
     </div>
 </div>
 <script>
@@ -29,17 +34,25 @@ function initialize() {
     };
     map = new google.maps.Map(document.getElementById('map-canvas'),
         mapOptions);
+
+    <?php if ($address): ?>
+	      getTweet('<?php echo $address ?>');
+    <?php endif ?>
 }
 
 google.maps.event.addDomListener(window, 'load', initialize);
 
-$('#search').on('click', codeAddress);
+$('#search').on('click', function() {
+	  var address = $('#address').val();
+	  $('#search-key').text('TWEET ABOUT ' + address);
+	  hist.pushState('main', address, '?q=' + address);
+	  getTweet(address);
+});
 
 var markers = [];
 var infoWindowStore = [];
 
-function codeAddress() {
-    var address = $('#address').val();
+function getTweet(address) {
     geocoder.geocode( { 'address': address}, function(results, status) {
     	  if (status == google.maps.GeocoderStatus.OK) {
     		    map.setCenter(results[0].geometry.location);

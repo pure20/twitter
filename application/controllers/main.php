@@ -7,7 +7,7 @@ class Main extends MY_Controller
 {
     public function index()
     {
-        $content = array();
+        $content['address'] = $this->input->get('q', true);
         $page['mainContent'] = $this->load->view('main/index', $content, true);
         $this->load->view('layout', $page);
     }
