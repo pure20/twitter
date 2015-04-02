@@ -8,7 +8,7 @@
     <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
     <script type="text/javascript"
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAsgnVE95c8rRKlVs1xzA4SCtWe64XIv1Q"></script>
-    
+    <script src="<?php echo ASSETS ?>js/tweetmap.js"></script>
     <link rel="stylesheet" href="<?php echo ASSETS ?>css/index.css" />
     <script>
         var hist = window.history;
