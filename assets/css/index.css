@@ -10,6 +10,11 @@ body {
     height: 100%;
 }
 
+a { 
+	  color: #333333;
+	  text-decoration: none;
+}
+
 #body {
     position: relative;	
 }
@@ -63,6 +68,7 @@ body {
     border: 1px solid white;
     color: white;
     width: 70px;
+    cursor: pointer;
 }
 
 .float-left {
@@ -76,7 +82,15 @@ ul#menu-item {
 .item a {
     display: block;	
     padding: 10px;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid #7F7F7F;
+}
+
+.item a:hover {
+	  background-color: #F4F4F4;
+}
+
+.item:first-child {
+	  font-weight: bold;
 }
 
 @media all and (min-width: 641px) {
