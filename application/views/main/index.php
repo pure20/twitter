@@ -5,15 +5,17 @@
 <?php endif ?>
 <div id="map-canvas"></div>
 <div id="control-holder">
-    <div id="input-holder">
-        <div id="input-button-indent">
-            <input type="text" id="address" name="address" class="input-box input-pad" placeholder="Country name" />
+    <form id="address-form">
+        <div id="input-holder">
+            <div id="input-button-indent">
+                <input type="text" id="address" name="address" class="input-box input-pad" autocomplete="off" placeholder="Country name" />
+            </div>
         </div>
-    </div>
-    <div id="button-holder">
-        <input type="button" class="button float-left input-pad" id="search" value="Search" />
-        <input type="button" class="button float-left input-pad" value="History" onclick="window.location.href='history'" />
-    </div>
+        <div id="button-holder">
+            <input type="submit" class="button float-left input-pad" id="search" value="Search" />
+            <input type="button" class="button float-left input-pad" value="History" onclick="window.location.href='history'" />
+        </div>
+    </form>
 </div>
 <script>
 $(document).ready(function() {
@@ -43,12 +45,16 @@ function initialize() {
 google.maps.event.addDomListener(window, 'load', initialize);
 
 $('#search').on('click', function() {
+	  $('#address-form').submit();
+});
+
+$('#address-form').on('submit', function(e) {
 	  var address = $('#address').val();
 	  $('#search-key').text('TWEET ABOUT ' + address);
 	  hist.pushState('main', address, '?q=' + address);
 	  getTweet(address);
-});
-
+	  e.preventDefault();
+})
 var markers = [];
 var infoWindowStore = [];
 

@@ -50,7 +50,7 @@ class Main extends MY_Controller
                     'uid' => $this->user,
                     'search_text' => $searchQuery,
                     'tweet' => $response,
-                    'created_at' => date('Y-m-d H:s:i')
+                    'created_at' => date('Y-m-d H:i:s')
                 );
                 
                 $this->tweet_model->saveSearch($saveData);
